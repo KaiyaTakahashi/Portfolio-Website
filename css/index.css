@@ -17,13 +17,14 @@
     --clr-text: #151515;
     --clr-accent: hsl(218, 100%, 58%);
     --clr-gradual: linear-gradient(to right,hsl(253, 100%, 54%), hsl(192, 100%, 73%));
+    --clr-dark: rgb(24, 24, 24);
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 2rem;
     --fs-body: 1rem;
 
-    --imgs-me: 250px;
+    --imgs: 250px;
 
     --bs: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -34,7 +35,7 @@
         --fs-h2: 3.75rem;
         --fs-h3: 2.3rem;
         --fs-body: 1rem;
-        --imgs-me: 300px;
+        --imgs: 300px;
     }
 }
 
@@ -54,10 +55,14 @@ section {
     padding: 5em 2em;
 }
 
-img {
+.myself-img {
     display: block;
-    width: var(--imgs-me);
+    width: var(--imgs);
     box-shadow: var(--bs);
+}
+
+img {
+    width: var(--imgs);
 }
 
 /* Typography */
@@ -130,4 +135,121 @@ h3 { font-size: var(--fs-h3); }
         /* Put colour label underneath */
         z-index: 2;
     }
+}
+
+    /* My services section */
+    
+.my-services {
+    color: #ffff;
+    background-color: green;
+    background-image: url(https://i1.wp.com/www.regur.net/wp-content/uploads/2019/07/website-development.jpg?resize=1200%2C550&ssl=1);
+    background-blend-mode: multiply;
+    background-size: cover;
+    text-align: center;
+}
+
+.section-title-services {
+    color: var(--clr-gradual);
+    position: relative;
+}
+
+.section-title-services::after {
+    content: '';
+    display: block;
+    width: 25%;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-gradual);
+    opacity: 1;
+}
+
+.service {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    .services {
+        display: flex;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .service + .service {
+        margin-left: 2em;
+    }
+}
+
+/* About me */
+
+.about-me {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img"
+        ;
+        grid-column-gap: 1em;
+    }
+
+    .section-title-about {
+        grid-area: title;
+    }
+
+    .section-subtitle-about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        width: calc(100% + 4em);
+        padding-left: 1em;
+        padding-right: calc(200px + 5em);
+    }
+
+    .about-me-body {
+        grid-area: text;
+    }
+    
+    .about-me-img {
+        grid-area: img;
+        z-index: 2;
+    }
+}
+
+/* My Wrok */
+
+.my-work {
+    background-color: var(--clr-dark);
+    color: #ffff;
+    text-align: center;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+
+.portfolio-img {
+    transition: 
+        transform 750ms cubic-bezier(.5, 0, .5, 1),
+        ocacity 250ms linear;
+    ;
+}
+
+.portfolio-img:hover, .portfolio-img:focus {
+    transform: scale(1.1);
+    opacity: 0.75 ;
+}
+
+.portfolio:focus {
+    position: relative;
+    z-index: 2;
 }
