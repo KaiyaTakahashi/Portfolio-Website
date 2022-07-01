@@ -1,0 +1,58 @@
+img {
+    height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    font-weight: 300;
+    font-weight: bold;
+    background-color: #ffff;
+    color: #303030;
+    accent-color: #16e0bd;
+}
+
+body {
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+@media (min-width: 800px) {
+    body {
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 4.5rem;
+    }
+    
+    h2 {
+        font-size: 3.75rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    img {
+        height: 300px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
