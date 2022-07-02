@@ -15,9 +15,9 @@
 
     --clr-bg: #ffff;
     --clr-text: #151515;
-    --clr-accent: hsl(218, 100%, 58%);
+    --clr-accent: hsl(192, 100%, 73%);
     --clr-gradual: linear-gradient(to right,hsl(253, 100%, 54%), hsl(192, 100%, 73%));
-    --clr-dark: rgb(24, 24, 24);
+    --clr-dark: rgb(66, 66, 66);
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -102,6 +102,97 @@ h3 { font-size: var(--fs-h3); }
     color: #c5fff5;
 }
 
+/* header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding-inline-end: 1em;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+.nav {
+    position: fixed;
+    background-color: var(--clr-dark);
+    counter-reset: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #ffff;
+    font-size: var(--fs-h2);
+    text-decoration: none;
+    font-family: var(--ff-primary);
+}
+
+.nav-link:hover {
+    color: var(--clr-accent);
+}
+
+.nav-toggle {
+    padding: 0.25em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-accent);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger::before {
+    top: 6px;
+}
+
+.hamburger::after {
+    bottom: 6px;
+}
+
+.nav-open .nav {
+    transform: translateX(0);
+}
+
 /* Intro section */
 
 .intro {
@@ -141,7 +232,7 @@ h3 { font-size: var(--fs-h3); }
     
 .my-services {
     color: #ffff;
-    background-color: green;
+    background-color: rgb(119, 239, 255);
     background-image: url(https://i1.wp.com/www.regur.net/wp-content/uploads/2019/07/website-development.jpg?resize=1200%2C550&ssl=1);
     background-blend-mode: multiply;
     background-size: cover;
@@ -244,7 +335,8 @@ h3 { font-size: var(--fs-h3); }
     ;
 }
 
-.portfolio-img:hover, .portfolio-img:focus {
+.portfolio-img:hover,
+ .portfolio-img:focus {
     transform: scale(1.1);
     opacity: 0.75 ;
 }
@@ -252,4 +344,45 @@ h3 { font-size: var(--fs-h3); }
 .portfolio:focus {
     position: relative;
     z-index: 2;
+}
+
+/* Footer */
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-link {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-bold);
+}
+
+footer, a > i {
+    background-color: #111;
+    color: var(--clr-accent);
+    font-size: var(--fs-h3);
+    text-align: center;
+    padding: 1em 0;
+}
+
+.footer-link:hover,
+ a > i:hover {
+    opacity: 0.7;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list-item {
+    margin: 0 0.5em;
+}
+
+.social-list-link {
+    padding: 0.5em;
 }
