@@ -41,6 +41,10 @@
 
 /* General styles */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--clr-light);
     color: var(--clr-dark);
@@ -151,8 +155,11 @@ header {
 }
 
 .nav-toggle {
-    padding: 0.25em;
+    padding: 0.5em;
     background: transparent;
+    position: absolute;
+    right: 1em;
+    top: 1em;
     border: 0;
     cursor: pointer;
     z-index: 1000;
@@ -191,6 +198,14 @@ header {
 
 .nav-open .nav {
     transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(-180deg);
 }
 
 /* Intro section */
